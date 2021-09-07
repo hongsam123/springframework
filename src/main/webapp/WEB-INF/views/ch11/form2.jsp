@@ -42,7 +42,7 @@
 		<form:form method="post" action="form2" modelAttribute="member">
 			<div class="form-group">
 				<label for="mtype">Type</label>
-				<form:select path="mtype" items="${typeList}" class="form-control">
+				<form:select path="mtype" items="${typeList}" class="form-control" multiple="">
 				</form:select>
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</div>

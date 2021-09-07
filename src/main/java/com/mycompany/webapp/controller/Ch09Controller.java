@@ -46,7 +46,7 @@ public class Ch09Controller {
 		logger.info("file size: " + attach.getSize());
 
 		String savedname = new Date().getTime() + "-" + attach.getOriginalFilename();
-		File file = new File("C:/hyundai_it&e/upload_files/" + savedname);
+		File file = new File("C:/hyndai_it&e/upload_files/" + savedname);
 		attach.transferTo(file);
 
 		return "redirect:/ch09/content";
@@ -66,7 +66,7 @@ public class Ch09Controller {
 		logger.info("file size: " + attach.getSize());
 
 		String savedname = new Date().getTime() + "-" + attach.getOriginalFilename();
-		File file = new File("C:/hyundai_it&e/upload_files/" + savedname);
+		File file = new File("C:/hyndai_it&e/upload_files/" + savedname);
 		attach.transferTo(file);
 
 		JSONObject jsonObject = new JSONObject();
@@ -81,7 +81,7 @@ public class Ch09Controller {
 	@GetMapping(value="/fileDownload", produces="images/jpeg")
 	@ResponseBody
 	public byte[] fileDownload(String savedname) throws IOException {
-		String filePath = "C:/hyundai_it&e/upload_files/"+ savedname;
+		String filePath = "C:/hyndai_it&e/upload_files/"+ savedname;
 		InputStream is = new FileInputStream(filePath);
 		byte[] data = IOUtils.toByteArray(is);
 		return data;
@@ -107,11 +107,13 @@ public class Ch09Controller {
 
 		response.setHeader("Content-Disposition", "attachment; filename=\"" + originalFileName + "\"");
 
-		String filePath = "C:/hyundai_it&e/upload_files/" + savedName;
+		String filePath = "C:/hyndai_it&e/upload_files/" + savedName;
 		InputStream is = new FileInputStream(filePath);
+
 
 		OutputStream os = response.getOutputStream();
 
+		//입력 스트림 -> 출력스트림
 		FileCopyUtils.copy(is, os);
 		is.close();
 		os.flush();

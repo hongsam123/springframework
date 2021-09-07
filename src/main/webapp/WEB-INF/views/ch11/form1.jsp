@@ -7,19 +7,19 @@
 		<form method="post" action="form1">
 			<div class="form-group">
 				<label for="mid">Member ID</label>
-				<input type="text" class="form-control" id="mid" name="mid">
+				<input type="text" class="form-control" name="mid">
 			</div>
 			<div class="form-group">
 				<label for="mname">Name</label>
-				<input type="text" class="form-control" id="mname" name="mname">
+				<input type="text" class="form-control" name="mname">
 			</div>
 			<div class="form-group">
 				<label for="mpassword">Password</label>
-				<input type="password" class="form-control" id="mpassword" name="mpassword">
+				<input type="password" class="form-control" name="mpassword">
 			</div>
 			<div class="form-group">
 				<label for="mnation">Nation</label>
-				<input type="text" class="form-control" id="mnation" name="mnation" value="${defaultNation }">
+				<input type="text" class="form-control" name="mnation" value="${defaultNation}">
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
