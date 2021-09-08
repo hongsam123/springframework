@@ -8,10 +8,12 @@ import com.mycompany.webapp.view.Ch12FileListView;
 
 @Repository
 public class Ch13BoardDao2 {
-	private static final Logger logger = LoggerFactory.getLogger(Ch12FileListView.class);
+	private static final Logger logger = LoggerFactory.getLogger(Ch13BoardDao2.class);
 	
 	public Ch13BoardDao2() {
 		logger.info("실행");
 	}
-
+	public void update() {
+		logger.info("update 실행");
+	}
 }
