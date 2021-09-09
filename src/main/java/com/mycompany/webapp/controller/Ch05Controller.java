@@ -75,7 +75,7 @@ public class Ch05Controller {
 		cookie.setDomain("localhost"); //localhost면 전송 
 		cookie.setPath("/"); // localhost/...면 전송 
 		cookie.setMaxAge(30*60);//초단위 60초가 30번 >> 30분 :: 이 시간동안에만 전송 
-		cookie.setHttpOnly(true); //javascript에서 못 읽게 함.
+		cookie.setHttpOnly(false); //javascript에서 못 읽게 함.
 		cookie.setSecure(true); //https:// 만 전송 
 		
 		response.addCookie(cookie);
