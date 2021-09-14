@@ -10,7 +10,7 @@
 			<a href="testConnectToDB" class="btn btn-info btn-sm">DB 연결</a>
 			</div>
 		</div>
-
+		
 		<div class="card">
 			<div class="card-header">JDBC 연습</div>
 			<div class="card-body">
@@ -20,14 +20,17 @@
 			<a href="testDelete" class="btn btn-danger btn-sm">Delete</a>
 			</div>
 		</div>
-
+		
 		<div class="card">
 			<div class="card-header">MyBatis를 이용하는 Dao</div>
 			<div class="card-body">
 			<a href="join" class="btn btn-success btn-sm">회원가입</a>
 			<a href="login" class="btn btn-primary btn-sm">로그인</a>
+			<a href="boardList" class="btn btn-primary btn-sm">게시판</a>
 			</div>
 		</div>
+		
+		
 	</div>
 </div>
 

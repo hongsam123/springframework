@@ -16,25 +16,31 @@ public class Ch10ExceptionHandler {
 	private static final Logger logger = LoggerFactory.getLogger(Ch10Controller.class);
 
 	public Ch10ExceptionHandler() {
-		logger.info("실행");
+		logger.info("Exception Handler 객체 생성");
 	}
 	
 	//예외 처리자 설정
 	@ExceptionHandler
 	public String handleNullPointerException(NullPointerException e) {
-		logger.info("실행");
+		logger.info("handleException 실행");
 		return "error/500_null";
 	}
 	
 	@ExceptionHandler
 	public String handleClassCastException(ClassCastException e) {
-		logger.info("실행");
+		logger.info("handleClassCastException 실행");
 		return "error/500_cast";
 	}
+
+//	@ExceptionHandler
+//	public String handleRuntimeException(RuntimeException e) { 
+//		logger.info("handleRuntimeException 실행");
+//		return "error/500";
+//	}
 	
 	@ExceptionHandler
-	public String handleException(Exception e) {
-		logger.info("실행");
-		return "error/500";
+	public String handleSoldOutException (Chap10SoldOutException e) { 
+		logger.info("Chap10SoldOutException 실행");
+		return "error/soldout";
 	}
 }

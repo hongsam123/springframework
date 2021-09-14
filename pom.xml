@@ -202,6 +202,12 @@
 			<artifactId>mybatis</artifactId>
 			<version>3.5.7</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.googlecode.log4jdbc/log4jdbc -->
+		<dependency>
+			<groupId>com.googlecode.log4jdbc</groupId>
+			<artifactId>log4jdbc</artifactId>
+			<version>1.2</version>
+		</dependency>
 
 	</dependencies>
 	<build>
