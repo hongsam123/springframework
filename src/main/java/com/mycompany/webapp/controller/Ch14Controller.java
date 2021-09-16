@@ -174,10 +174,10 @@ public class Ch14Controller {
 		LoginResult lr = memberService.login(member);
 		if(lr == LoginResult.SUCCESS) {
 			return "redirect:/ch14/content";
-		}else if(lr == LoginResult.WRONG_ID) {
+		}else if(lr == LoginResult.FAIL_MID) {
 			model.addAttribute("error", "등록되지 않은 아이디입니다.");
 			return "ch14/loginForm";
-		}else if(lr == LoginResult.WRONG_PASSWORD) {
+		}else if(lr == LoginResult.FAIL_MPASSWORD) {
 			model.addAttribute("error", "패스워드가 잘못 되었습니다.");
 			return "ch14/loginForm";
 		}else {

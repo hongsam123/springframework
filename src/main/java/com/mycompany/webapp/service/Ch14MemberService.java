@@ -20,7 +20,10 @@ public class Ch14MemberService {
 	}
 
 	public enum LoginResult {
-		SUCCESS, FAIL, WRONG_ID, WRONG_PASSWORD
+		SUCCESS,
+		FAIL_MID,
+		FAIL_MPASSWORD,
+		FAIL
 	}
 
 	@Resource
@@ -55,12 +58,12 @@ public class Ch14MemberService {
 		try {
 			Ch14Member dbMember = memberDao.selectByMid(member.getMid());
 			if (dbMember == null) {
-				return LoginResult.WRONG_ID;
+				return LoginResult.FAIL_MID;
 			} else {
 				if (dbMember.getMpassword().equals(member.getMpassword())) {
 					return LoginResult.SUCCESS;
 				} else {
-					return LoginResult.WRONG_PASSWORD;
+					return LoginResult.FAIL_MPASSWORD;
 				}
 			}
 		} catch (Exception e) {
