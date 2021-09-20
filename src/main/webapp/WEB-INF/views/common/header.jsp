@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <!DOCTYPE html>
 <html>
@@ -11,18 +12,22 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>SpringFramework</title>
+
 <%--
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
-		<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-		--%>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+ --%>
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/bootstrap-4.6.0-dist/css/bootstrap.min.css" />
 <script
 	src="${pageContext.request.contextPath}/resources/jquery/jquery-3.5.1.min.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js"></script>
-
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/app.css" />
 </head>
@@ -30,30 +35,45 @@
 	<div class="d-flex flex-column vh-100">
 		<nav
 			class="navbar navbar-expand-sm bg-dark navbar-dark text-white font-weight-bold justify-content-between">
-			<a class="navbar-brand" href="/"> <img
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/">
+				<img
 				src="${pageContext.request.contextPath}/resources/images/logo-spring.png"
 				width="30" height="30" class="d-inline-block align-top">
 				Spring
 			</a>
 			<div>
 				<div>
-					<c:if test="${sessionMid == null}">
-						<%-- <a class="btn btn-success btn-sm" href="${pageContext.request.contextPath}/ch08/login">로그인</a> --%>
-						<a class="btn btn-success btn-sm"
-							href="${pageContext.request.contextPath}/ch15/login">로그인</a>
+					<sec:authorize access="isAnonymous()">
+						<a href="${pageContext.request.contextPath}/ch17/loginForm" class="btn btn-primary btn-sm">로그인</a>
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+						<!-- 사이트간 요청 위조 방지가 활성화 되어 있지 않을 경우 -->
+					<%-- <a href="${pageContext.request.contextPath}/logout" class="btn btn-danger btn-sm">로그아웃</a> --%>
+					
+					<!-- 사이트간 요청 위조 방지가 활성화 되어 있을 경우 -->
+					<form method="post" action="${pageContext.request.contextPath}/logout">
+						<%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> --%>
+						<sec:csrfInput/>
+						<button class="btn btn-danger btn-sm">로그아웃</button> 
+					</form>
+					</sec:authorize>
+						<%-- <c:if test="${sessionMid == null}">
+						<a class="btn btn-success btn-sm" href="${pageContext.request.contextPath}/ch08/login">로그인</a>
+						<a class="btn btn-success btn-sm" href="${pageContext.request.contextPath}/ch15/login">로그인</a>
 					</c:if>
 					<c:if test="${sessionMid != null}">
-						<%-- <a class="btn btn-success btn-sm" href="${pageContext.request.contextPath}/ch08/logout">로그아웃</a> --%>
-						<a class="btn btn-success btn-sm"
-							href="${pageContext.request.contextPath}/ch15/logout">로그아웃</a>
-					</c:if>
+						<a class="btn btn-success btn-sm" href="${pageContext.request.contextPath}/ch08/logout">로그아웃</a>
+						<a class="btn btn-success btn-sm" href="${pageContext.request.contextPath}/ch15/logout">로그아웃</a>
+					</c:if> --%>
 				</div>
 			</div>
 		</nav>
+		<%-- 상단바 --%>
 
 		<div class="flex-grow-1 container-fluid">
 			<div class="row h-100">
 				<div class="col-md-4 p-3 bg-dark">
+					<%-- 왼쪽 메뉴 --%>
 					<div class="h-100 d-flex flex-column">
 						<div class="flex-grow-1"
 							style="height: 0px; overflow-y: auto; overflow-x: hidden;">
@@ -63,5 +83,6 @@
 				</div>
 
 				<div class="col-md-8 p-3">
+					<%-- 오른쪽 흰 부분 --%>
 					<div class=" h-100 d-flex flex-column">
 						<div class="flex-grow-1 overflow-auto pr-3" style="height: 0px">
