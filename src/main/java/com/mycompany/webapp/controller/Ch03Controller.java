@@ -41,7 +41,7 @@ public class Ch03Controller {
 		return "redirect:/ch03/content";
 	}*/
 	
-	@GetMapping("/method1")
+	/*@GetMapping("/method1")
 	public String method1(
 		String param1,
 		@RequestParam(defaultValue="0") int param2,
@@ -56,18 +56,18 @@ public class Ch03Controller {
 		logger.info("param4: " + param4);
 		logger.info("param5: " + param5);
 		return "redirect:/ch03/content";
-	}
+	}*/
 	
-	/*@GetMapping("/method1")
+	@GetMapping("/method1")
 	public String method1(Ch03Dto dto) {
-		logger.info("실행");
+		logger.info("dto 객체");
 		logger.info("param1: " + dto.getParam1());
 		logger.info("param2: " + dto.getParam2());
 		logger.info("param3: " + dto.getParam3());
 		logger.info("param4: " + dto.isParam4());
 		logger.info("param5: " + dto.getParam5());
 		return "redirect:/ch03/content";
-	}*/
+	}
 	
 	/*@PostMapping("/method2")
 	public String method2(

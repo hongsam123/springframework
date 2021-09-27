@@ -39,9 +39,12 @@ public class Ch04Controller {
 	public void joinFormSetValidate(WebDataBinder binder) {
 		logger.info("실행");
 		
+		//폼 단위 validator사용
+		//해당 validator만으로 id, password, email,tel유효성 검사
 //		binder.setValidator(new Ch04MemberJoinFormValidator());
 		
 		//필드 단위 validator을 추가해주기 
+		//추가한 validator로 검증을 수행, 수행 후 결과는 BindingResult에 담긴다
 		binder.addValidators(
 				new Ch04MemberIdValidator(),
 				new Ch04MemberPasswordValidator(),

@@ -4,6 +4,7 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	version="4.0">
 	
+	<!-- ContextLoaderListener 설정 -->
    <!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
    <context-param>
       <param-name>contextConfigLocation</param-name>
@@ -14,7 +15,8 @@
    <listener>
       <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
    </listener>
-
+   
+	<!-- DispatcherServlet 설정 -->
    <!-- Processes application requests -->
    <servlet>
       <servlet-name>appServlet</servlet-name>

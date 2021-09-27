@@ -10,7 +10,7 @@ import org.springframework.validation.Validator;
 
 import com.mycompany.webapp.dto.Ch04Member;
 
-
+//폼 단위 validator
 public class Ch04MemberJoinFormValidator implements Validator{
 
 	private static final Logger logger = LoggerFactory.getLogger(Ch04MemberJoinFormValidator.class);
